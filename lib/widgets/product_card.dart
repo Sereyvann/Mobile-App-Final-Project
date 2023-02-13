@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:final_project/screens/product_screen.dart';
 import 'package:final_project/utils/global.colors.dart';
 import 'package:flutter/material.dart';

@@ -16,9 +16,7 @@ class CartScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+                      onTap: () {},
                       child: Icon(
                         Icons.arrow_back_ios_new,
                         size: 22,
@@ -32,9 +30,7 @@ class CartScreen extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
+                      onTap: () {},
                       child: Icon(
                         Icons.more_horiz,
                         size: 22,

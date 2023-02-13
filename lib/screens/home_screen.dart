@@ -1,11 +1,16 @@
 import 'package:final_project/utils/global.colors.dart';
 import 'package:final_project/widgets/product_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  List catlist = ["All", "Best Selling", "Jackets", "Shirts", "Pants", "Bags"];
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  List catlist = ["All", "Best Selling", "Jackets", "Shirts", "Pants", "Bags"];
   List imgList = ["Jacket", "Pant", "Tshirt", "Bag"];
 
   @override
@@ -129,24 +134,51 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.white,
-        iconSize: 30,
-        selectedItemColor: GlobalColors.primaryMediumColor,
-        unselectedItemColor: Colors.grey,
-        currentIndex: 0,
-        onTap: (index) {},
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.heart), label: 'Saved'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.cart), label: 'Cart'),
-          BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.person), label: 'Account'),
-        ],
-      ),
+      // bottomNavigationBar: ButtonNavbar(),
     );
   }
 }
+
+// class ButtonNavbar extends StatefulWidget {
+//   const ButtonNavbar({super.key});
+
+//   @override
+//   State<ButtonNavbar> createState() => _ButtonNavbarState();
+// }
+
+// class _ButtonNavbarState extends State<ButtonNavbar> {
+//   int _currentIndex = 0;
+//   final screens = [HomeScreen(), SavedScreen(), CartScreen(), ProfileScreen()];
+
+//   final PageStorageBucket bucket = PageStorageBucket();
+//   Widget currentScreen = HomeScreen();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       //body: screens[_currentIndex],
+//       bottomNavigationBar: BottomNavigationBar(
+//         backgroundColor: Colors.white,
+//         iconSize: 30,
+//         selectedItemColor: GlobalColors.primaryMediumColor,
+//         unselectedItemColor: Colors.grey,
+//         currentIndex: _currentIndex,
+//         type: BottomNavigationBarType.fixed,
+//         items: [
+//           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+//           BottomNavigationBarItem(
+//               icon: Icon(CupertinoIcons.heart), label: 'Saved'),
+//           BottomNavigationBarItem(
+//               icon: Icon(CupertinoIcons.cart), label: 'Cart'),
+//           BottomNavigationBarItem(
+//               icon: Icon(CupertinoIcons.person), label: 'Account'),
+//         ],
+//         onTap: (index) {
+//           setState(() {
+//             _currentIndex = index;
+//           });
+//         },
+//       ),
+//     );
+//   }
+// }

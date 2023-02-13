@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print
 
-import 'package:final_project/screens/home_screen.dart';
 import 'package:final_project/utils/global.colors.dart';
+import 'package:final_project/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
@@ -14,7 +14,7 @@ class LoginButton extends StatelessWidget {
         print('Login');
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => MyBottomNavbar()),
         );
       },
       child: Container(
@@ -31,7 +31,7 @@ class LoginButton extends StatelessWidget {
           ],
         ),
         child: const Text(
-          'SignIn',
+          'Sign In',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w600,
@@ -52,7 +52,7 @@ class SignUpButton extends StatelessWidget {
         print('Login');
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => MyBottomNavbar()),
         );
       },
       child: Container(
@@ -69,7 +69,7 @@ class SignUpButton extends StatelessWidget {
           ],
         ),
         child: const Text(
-          'SignUp',
+          'Sign Up',
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w600,
