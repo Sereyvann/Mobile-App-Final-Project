@@ -5,8 +5,8 @@ import 'package:final_project/utils/global.colors.dart';
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {
-  String img;
-  ProductCard(this.img);
+  final Map item;
+  ProductCard(this.item);
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +23,11 @@ class ProductCard extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ProductScreen(img)));
+                            builder: (context) =>
+                                ProductScreen(item['image'])));
                   },
-                  child: Image.asset(
-                    "images/${img}.png",
+                  child: Image.network(
+                    item['image'],
                     fit: BoxFit.cover,
                     height: 230,
                   ),
@@ -60,7 +61,7 @@ class ProductCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  img,
+                  item['title'],
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
@@ -68,7 +69,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "\$10.99",
+                  item['price'].toString() + "\$",
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,

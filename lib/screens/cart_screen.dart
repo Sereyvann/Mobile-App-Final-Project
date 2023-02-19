@@ -2,6 +2,8 @@ import 'package:final_project/utils/global.colors.dart';
 import 'package:final_project/widgets/cart_item_sample.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/bottom_navbar.dart';
+
 class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,13 @@ class CartScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MyBottomNavbar()),
+                        );
+                      },
                       child: Icon(
                         Icons.arrow_back_ios_new,
                         size: 22,

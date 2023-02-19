@@ -1,13 +1,21 @@
-import 'package:final_project/screens/login.view.dart';
 import 'package:final_project/screens/update_pf.dart';
 import 'package:final_project/utils/global.colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/utils.dart';
 
+import '../widgets/bottom_navbar.dart';
+
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  ProfileScreen({Key? key}) : super(key: key);
+  final user = FirebaseAuth.instance.currentUser!;
+
+  // sign user out method
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +23,12 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: GlobalColors.bgColor,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyBottomNavbar()),
+            );
+          },
           icon: const Icon(Icons.arrow_back_ios_new),
           color: GlobalColors.textColor,
         ),
@@ -121,7 +134,7 @@ class ProfileScreen extends StatelessWidget {
                 icon: Icons.logout_rounded,
                 textColor: Colors.red,
                 endIcon: false,
-                onPress: (() => Get.to(LoginView())),
+                onPress: signUserOut,
               ),
             ],
           ),

@@ -4,7 +4,12 @@ import 'package:final_project/utils/global.colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CartItemSamples extends StatelessWidget {
+class CartItemSamples extends StatefulWidget {
+  @override
+  State<CartItemSamples> createState() => _CartItemSamplesState();
+}
+
+class _CartItemSamplesState extends State<CartItemSamples> {
   List imgList = ["Jacket", "Pant", "Tshirt", "Bag"];
 
   @override
@@ -72,14 +77,17 @@ class CartItemSamples extends StatelessWidget {
                 ),
                 Spacer(),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5),
+                  padding: EdgeInsets.symmetric(vertical: 1),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        CupertinoIcons.delete,
-                        color: GlobalColors.primaryLightColor,
+                      InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          CupertinoIcons.delete,
+                          color: GlobalColors.primaryLightColor,
+                        ),
                       ),
                       Row(
                         children: [
