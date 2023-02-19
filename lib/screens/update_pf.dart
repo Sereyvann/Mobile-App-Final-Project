@@ -1,3 +1,4 @@
+import 'package:final_project/screens/profile_screen.dart';
 import 'package:final_project/utils/global.colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,8 @@ class UpdateProfileScreen extends StatelessWidget {
   UpdateProfileScreen({super.key});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  bool isObscurePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -65,12 +68,59 @@ class UpdateProfileScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 50),
-              Form(
-                child: Column(
-                  children: [],
-                ),
+              buildTextField("Full Name", "Enter your full name", false),
+              buildTextField("Email", "Enter your email", false),
+              buildTextField("Password", "Enter your password", true),
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => Get.to(() => ProfileScreen()),
+                    child: Text("Save",
+                        style: TextStyle(
+                            fontSize: 15,
+                            letterSpacing: 2,
+                            color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: GlobalColors.primaryLightColor,
+                      padding: EdgeInsets.symmetric(horizontal: 50),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                  ),
+                ],
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildTextField(
+      String labelText, String placeholder, bool isPasswordTextField) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 30),
+      child: TextField(
+        obscureText: isPasswordTextField ? isObscurePassword : false,
+        decoration: InputDecoration(
+          suffixIcon: isPasswordTextField
+              ? IconButton(
+                  icon: Icon(Icons.remove_red_eye, color: Colors.grey),
+                  onPressed: () {},
+                )
+              : null,
+          contentPadding: EdgeInsets.only(bottom: 5),
+          labelText: labelText,
+          labelStyle:
+              TextStyle(fontSize: 20, color: GlobalColors.primaryLightColor),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          hintText: placeholder,
+          hintStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
           ),
         ),
       ),
